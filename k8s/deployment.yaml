@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aicallsimulator-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: aicallsimulator
+  template:
+    metadata:
+      labels:
+        app: aicallsimulator
+    spec:
+      containers:
+        - name: aicallsimulator
+          image: localhost:5000/aicallsimulator:latest
+          ports:
+            - containerPort: 8080
